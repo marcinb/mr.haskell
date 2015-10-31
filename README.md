@@ -1,2 +1,6 @@
 # mr.haskell
-Haskell playground
+
+Excercising Haskell, big thanks to:
+
+* http://learnyouahaskell.com/
+* https://www.haskell.org/tutorial/index.html
