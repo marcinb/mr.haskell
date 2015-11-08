@@ -1,5 +1,7 @@
 data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show, Read, Eq)
 
+exampleTree = foldr treeInsert EmptyTree [8,6,4,1,7,3,5]
+
 singleton :: (Ord a) => a -> Tree a
 singleton x = Node x EmptyTree EmptyTree
 
@@ -16,3 +18,8 @@ treeElem x (Node y left right)
     | x == y = True
     | x < y = treeElem x left
     | x > y = treeElem x right
+
+instance Functor Tree where
+    fmap f EmptyTree = EmptyTree
+    fmap f (Node a left right) =
+      Node (f a) (fmap f left) (fmap f right)
