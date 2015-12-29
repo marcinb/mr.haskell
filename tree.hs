@@ -23,3 +23,10 @@ instance Functor Tree where
     fmap f EmptyTree = EmptyTree
     fmap f (Node a left right) =
       Node (f a) (fmap f left) (fmap f right)
+
+instance Foldable Tree where
+    foldMap f EmptyTree = mempty
+    foldMap f (Node a left right) = 
+      foldMap f left `mappend`
+      f a `mappend`
+      foldMap f right
